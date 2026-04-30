@@ -1,0 +1,72 @@
+{
+  "components": {
+    "deploy-hardened": {
+      "name": "Hardened EC2 Spot Deployment",
+      "file": "deploy-hardened.sh",
+      "priority": 1,
+      "estimated_cost": 10,
+      "rationale": "Core AI inference engine. Required if no existing AI scanning infrastructure.",
+      "triggers": [
+        {"question": "cost_tolerance", "condition": "less_than", "threshold": 2, "weight": 10},
+        {"question": "validation_process", "condition": "less_than", "threshold": 2, "weight": 8}
+      ],
+      "deploy_threshold": 10
+    },
+    "inference-logger": {
+      "name": "Inference Audit Logging",
+      "file": "inference-logger.py",
+      "priority": 1,
+      "estimated_cost": 5,
+      "rationale": "APRA requirement: 7-year audit trail of AI decisions. Critical if not already logging.",
+      "triggers": [
+        {"question": "inference_logging", "condition": "less_than", "threshold": 2, "weight": 10}
+      ],
+      "deploy_threshold": 8
+    },
+    "weekly-rollup": {
+      "name": "Weekly Log Aggregation",
+      "file": "weekly-rollup.py",
+      "priority": 2,
+      "estimated_cost": 2,
+      "rationale": "Cost optimization. Reduces S3 costs via batching and Glacier transition.",
+      "triggers": [
+        {"question": "cost_tolerance", "condition": "equals", "value": 0, "weight": 5}
+      ],
+      "deploy_threshold": 5
+    },
+    "github-actions": {
+      "name": "CI/CD Security Scanning",
+      "file": ".github/workflows/ai-security-scan-hardened.yml",
+      "priority": 2,
+      "estimated_cost": 0,
+      "rationale": "Automated validation. Replaces expensive external red teams for routine scanning.",
+      "triggers": [
+        {"question": "validation_process", "condition": "less_than", "threshold": 2, "weight": 8}
+      ],
+      "deploy_threshold": 8
+    },
+    "s3-lifecycle": {
+      "name": "S3 Lifecycle Management",
+      "file": "s3-lifecycle.json",
+      "priority": 3,
+      "estimated_cost": 0,
+      "rationale": "Required for APRA 7-year retention at minimum cost (Glacier).",
+      "triggers": [
+        {"question": "inference_logging", "condition": "less_than", "threshold": 2, "weight": 5}
+      ],
+      "deploy_threshold": 5
+    },
+    "governance-workflow": {
+      "name": "Manual Governance Process",
+      "file": "governance-template/",
+      "priority": 1,
+      "estimated_cost": 0,
+      "rationale": "Critical gap: Board oversight documentation. Required if no formal approval process.",
+      "triggers": [
+        {"question": "ai_strategy_documented", "condition": "less_than", "threshold": 2, "weight": 10},
+        {"question": "board_literacy", "condition": "less_than", "threshold": 2, "weight": 8}
+      ],
+      "deploy_threshold": 10
+    }
+  }
+}
