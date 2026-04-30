@@ -3,25 +3,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![APRA Aligned](https://img.shields.io/badge/APRA-2025%20AI%20Letter-blue)](https://www.apra.gov.au/ai-letter)
 
-**Cost-Optimized AI Security Governance for Australian Financial Institutions**
-
-> **Target Cost:** <$50/month | **vs Enterprise Solutions:** $5,000+/month
-
-This repository provides a prototype "near-zero" cost architecture for AI governance that meets APRA prudential expectations without the enterprise price tag.
-
----
 
 ## 🎯 What Problem This Solves
 
-APRA's April 2025 AI letter requires regulated entities to:
+APRA's April 2026 AI letter (refer to https://www.apra.gov.au/apra-letter-to-industry-on-artificial-intelligence-ai) requires regulated entities to have:
 
 - ✅ **Board AI literacy and oversight** — sufficient understanding to provide governance
 - ✅ **Effective AI risk management** — strategy aligned with risk appetite  
 - ✅ **Independent validation** — not relying on vendor assurances
 - ✅ **Operational resilience** — defined triggers, monitoring, recovery plans
 - ✅ **Comprehensive audit trails** — 7-year retention of AI decisions
-
-**This architecture delivers all five at <$50/month.**
 
 ---
 
@@ -50,8 +41,8 @@ APRA's April 2025 AI letter requires regulated entities to:
 ├─────────────────────────────────────────────────────────────────┤
 │                     AUDIT LAYER (S3 + Glacier)                   │
 │  ┌─────────────────┐  ┌─────────────────┐                        │
-│  │ Inference Logs  │  │ 7-Year Retention│  APRA Requirement    │
-│  │ Compressed      │  │ Glacier Deep    │  $0.50/month         │
+│  │ Inference Logs  │  │ 7-Year Retention│  APRA Expectation      │
+│  │ Compressed      │  │ Glacier Deep    │  $0.50/month           │
 │  └─────────────────┘  └─────────────────┘                        │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -151,7 +142,7 @@ This is **not** a toy architecture. Production-grade security:
 
 | APRA Requirement (April 2025 Letter) | Implementation | Evidence |
 |--------------------------------------|----------------|----------|
-| **Board AI literacy** | Survey → Maturity scoring + documentation | `survey.py`, governance templates |
+| **Board AI literacy** | Survey → Maturity scoring + documentation | `survey.py`, governance templates | CONTACT YOUR AWS ACCOUNT TEAM TO ORGANISE A BOARD BRIEFING
 | **Effective risk management** | Security scanning, validation workflows | `ai-security-scan-hardened.yml` |
 | **Independent validation** | Open-source scanners (Garak, Semgrep) + red team | Scan results, issues logged |
 | **Operational resilience** | Spot handling, graceful shutdown, fallbacks | `deploy-hardened.sh` |
