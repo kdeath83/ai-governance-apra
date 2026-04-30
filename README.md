@@ -1,4 +1,4 @@
-# AI Governance Accelerator for APRA Regulated Entities
+# AI Governance Accelerator for APRA Regulated Entities (AREs)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![APRA Aligned](https://img.shields.io/badge/APRA-2025%20AI%20Letter-blue)](https://www.apra.gov.au/ai-letter)
@@ -7,7 +7,7 @@
 
 > **Target Cost:** <$50/month | **vs Enterprise Solutions:** $5,000+/month
 
-This repository provides a hardened, "near-zero" cost architecture for AI governance that meets APRA prudential expectations without the enterprise price tag.
+This repository provides a prototype "near-zero" cost architecture for AI governance that meets APRA prudential expectations without the enterprise price tag.
 
 ---
 
@@ -240,19 +240,9 @@ The `survey.py` script implements a **Well-Architected Framework** specifically 
 - ✅ Foundation for scaling to enterprise solutions
 
 ### What This Is NOT
-- ❌ Replacement for enterprise AI governance platforms (Fiddler, Arthur, etc.)
 - ❌ Suitable for **high-frequency production** without scaling
 - ❌ Substitute for **annual external validation** (still required for APRA attestation)
 - ❌ Turnkey solution requiring zero maintenance
-
-### Scaling Path
-
-| Phase | Timeline | Monthly Cost | Key Addition |
-|-------|----------|--------------|--------------|
-| **1 (this repo)** | Month 1 | $15-30 | Core governance |
-| **2** | Months 2-3 | $100-300 | Step Functions automation, always-on inference |
-| **3** | Months 4-6 | $500-1,000 | Managed services, external audit |
-| **4** | Year 2+ | $1,000-5,000 | Enterprise platform, 24/7 monitoring |
 
 ---
 
@@ -278,7 +268,7 @@ MIT License — For APRA-regulated Australian financial institutions and global 
 
 ## 🙏 Acknowledgments
 
-- **APRA** for clear 2025 AI governance expectations
+- **APRA** for clear 2026 AI governance expectations
 - **AWS** for cost-optimized infrastructure primitives
 - **Open-source community** (Garak, Semgrep, vLLM, TinyLlama)
 
@@ -292,6 +282,6 @@ MIT License — For APRA-regulated Australian financial institutions and global 
 
 ---
 
-**Built with ❤️ for Australian financial services compliance teams.**
+**Built with ❤️ for Australian AREs.**
 
-*"Governance doesn't have to cost the earth."*
+*"Governance doesn't have to be complicated and cost the earth."*
